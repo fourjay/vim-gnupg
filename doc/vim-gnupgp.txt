@@ -45,51 +45,51 @@ viminfo, swapfile, and undofile to increase security.
 ==============================================================================
 3. CONFIGURATION                                  *vim-gnupgp-configuration*
 
-g:GPGExecutable
+g:GPGExecutable                                      *g:GPGExecutable*
   If set used as gpg executable. If unset, defaults to
   "gpg --trust-model always" if "gpg" is available, falling back to
   "gpg2 --trust-model always" if not.
 
-g:GPGUseAgent
+g:GPGUseAgent                                        *g:GPGExecutable*
   If set to 0 a possible available gpg-agent won't be used. Defaults to 1.
 
-g:GPGPreferSymmetric
+g:GPGPreferSymmetric                             *g:GPGPreferSymmetric*
   If set to 1 symmetric encryption is preferred for new files. Defaults to 0.
 
-g:GPGPreferArmor
+g:GPGPreferArmor                                     *g:GPGPreferArmor*
   If set to 1 armored data is preferred for new files. Defaults to 0
   unless a "*.asc" file is being edited.
 
-g:GPGPreferSign
+g:GPGPreferSign                                       *g:GPGPreferSign*
   If set to 1 signed data is preferred for new files. Defaults to 0.
 
-g:GPGDefaultRecipients
+g:GPGDefaultRecipients                         *g:GPGDefaultRecipients*
   If set, these recipients are used as defaults when no other recipient is
   defined. This variable is a Vim list. Default is unset.
 
-g:GPGPossibleRecipients
+g:GPGPossibleRecipients                       *g:GPGPossibleRecipients*
   If set, these contents are loaded into the recipients dialog. This
   allows to add commented lines with possible recipients to the list,
   which can be uncommented to select the actual recipients. Default is
   unset. Example:
-
+>
     let g:GPGPossibleRecipients=[
       \"Example User <example@example.com>",
       \"Other User <otherexample@example.com>"
     \]
+<
 
-
-g:GPGUsePipes
+g:GPGUsePipes                                          *g:GPGUsePipes*
   If set to 1, use pipes instead of temporary files when interacting with
   gnupg.  When set to 1, this can cause terminal-based gpg agents to not
   display correctly when prompting for passwords.  Defaults to 0.
 
-g:GPGHomedir
+g:GPGHomedir                                            *g:GPGHomedir*
   If set, specifies the directory that will be used for GPG's homedir.
   This corresponds to gpg's --homedir option.  This variable is a Vim
   string. Default is unset.
 
-g:GPGFilePattern
+g:GPGFilePattern                                    *g:GPGFilePattern*
   If set, overrides the default set of file patterns that determine
   whether this plugin will be activated.  Defaults to
   '*.\(gpg\|asc\|pgp\)'.
