@@ -142,4 +142,4 @@ https://github.com/jamessan/vim-gnupg/issues/36 for more details.
 - James Vega for patches for better '*.asc' handling, better filename
   escaping and better handling of multiple keyrings.
 
-vim:tw=78:et:ft=help.text:norl:
+vim:tw=78:et:ft=help.text:norl:modifiable
