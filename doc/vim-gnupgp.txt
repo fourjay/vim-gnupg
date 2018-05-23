@@ -9,7 +9,7 @@ CONTENTS                                           *vim-gnupgp-contents*
    2. COMMANDS                                       |vim-gnupgp-commands|
    3. CONFIGURATION                             |vim-gnupgp-configuration|
    4. KNOWN ISSUES                                     |vim-gnupgp-issues|
-   4. CREDITS                                         |vim-gnupgp-credits|
+   5. CREDITS                                         |vim-gnupgp-credits|
 
 ==============================================================================
 1. INTRODUCTION                                           *vim-gnupgp-intro*
