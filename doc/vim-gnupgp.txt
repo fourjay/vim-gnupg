@@ -50,7 +50,7 @@ g:GPGExecutable                                      *g:GPGExecutable*
   "gpg --trust-model always" if "gpg" is available, falling back to
   "gpg2 --trust-model always" if not.
 
-g:GPGUseAgent                                        *g:GPGExecutable*
+g:GPGUseAgent                                        *g:GPGUseAgent*
   If set to 0 a possible available gpg-agent won't be used. Defaults to 1.
 
 g:GPGPreferSymmetric                             *g:GPGPreferSymmetric*
