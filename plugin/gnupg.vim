@@ -1,5 +1,5 @@
 " Name:    gnupg.vim
-" Last Change: 2018 Jun 22
+" Last Change: 2018 Aug 06
 " Maintainer:  James McCoy <jamessan@jamessan.com>
 " Original Author:  Markus Braun <markus.braun@krawel.de>
 " Summary: Vim plugin for transparent editing of gpg encrypted files.
@@ -175,7 +175,7 @@
 if (exists("g:loaded_gnupg") || &cp || exists("#GnuPG"))
   finish
 endif
-let g:loaded_gnupg = '2.6.1-dev'
+let g:loaded_gnupg = '2.7.0-dev'
 let s:GPGInitRun = 0
 
 " check for correct vim version {{{2
@@ -195,11 +195,9 @@ augroup GnuPG
 
   " do the decryption
   exe "autocmd BufReadCmd " . g:GPGFilePattern .  " call s:GPGInit(1) |" .
-                                                \ " call s:GPGDecrypt(1) |".
-                                                \ " setlocal filetype=gpg"
+                                                \ " call s:GPGDecrypt(1)"
   exe "autocmd FileReadCmd " . g:GPGFilePattern . " call s:GPGInit(0) |" .
-                                                \ " call s:GPGDecrypt(0) |"
-                                                \ " setlocal filetype=gpg"
+                                                \ " call s:GPGDecrypt(0)"
 
   " convert all text to encrypted text before writing
   " We check for GPGCorrespondingTo to avoid triggering on writes in GPG Options/Recipient windows
@@ -592,7 +590,7 @@ function s:GPGDecrypt(bufread)
 
   if b:GPGEncrypted
     " check if the message is armored
-    if (match(output, "gpg: armor header") >= 0)
+    if readfile(filename, '', 1)[0] =~# '^-\{5}BEGIN PGP\%( SIGNED\)\= MESSAGE-\{5}$'
       call s:GPGDebug(1, "this file is armored")
       let b:GPGOptions += ["armor"]
     endif
@@ -1444,6 +1442,10 @@ endfunction
 
 " Section: Commands {{{1
 
+command! GPGViewRecipients call s:GPGViewRecipients()
+command! GPGEditRecipients call s:GPGEditRecipients()
+command! GPGViewOptions call s:GPGViewOptions()
+command! GPGEditOptions call s:GPGEditOptions()
 
 " Section: Menu {{{1
 
