@@ -195,9 +195,11 @@ augroup GnuPG
 
   " do the decryption
   exe "autocmd BufReadCmd " . g:GPGFilePattern .  " call s:GPGInit(1) |" .
-                                                \ " call s:GPGDecrypt(1)"
+                                                \ " call s:GPGDecrypt(1) |"
+                                                \ " set filetype=gpg "
   exe "autocmd FileReadCmd " . g:GPGFilePattern . " call s:GPGInit(0) |" .
-                                                \ " call s:GPGDecrypt(0)"
+                                                \ " call s:GPGDecrypt(0) |"
+                                                \ " set filetype=gpg "
 
   " convert all text to encrypted text before writing
   " We check for GPGCorrespondingTo to avoid triggering on writes in GPG Options/Recipient windows
@@ -1442,10 +1444,10 @@ endfunction
 
 " Section: Commands {{{1
 
-command! GPGViewRecipients call s:GPGViewRecipients()
-command! GPGEditRecipients call s:GPGEditRecipients()
-command! GPGViewOptions call s:GPGViewOptions()
-command! GPGEditOptions call s:GPGEditOptions()
+" command! GPGViewRecipients call s:GPGViewRecipients()
+" command! GPGEditRecipients call s:GPGEditRecipients()
+" command! GPGViewOptions call s:GPGViewOptions()
+" command! GPGEditOptions call s:GPGEditOptions()
 
 " Section: Menu {{{1
 
