@@ -1,5 +1,5 @@
-command! -buffer GPGViewRecipients call s:GPGViewRecipients()
-command! -buffer GPGEditRecipients call s:GPGEditRecipients()
-command! -buffer GPGViewOptions call s:GPGViewOptions()
-command! -buffer GPGEditOptions call s:GPGEditOptions()
+command! -buffer GPGViewRecipients call gnupg#view_recipients()
+command! -buffer GPGEditRecipients call gnupg#edit_recipients()
+command! -buffer GPGViewOptions call gnupg#view_options()
+command! -buffer GPGEditOptions call gnupg#edit_options()
 
